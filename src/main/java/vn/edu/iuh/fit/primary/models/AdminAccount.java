@@ -1,5 +1,6 @@
 package vn.edu.iuh.fit.primary.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,6 +31,7 @@ public class AdminAccount {
     private LocalDateTime createAt;
     @Column(name = "status", nullable = false)
     private AdminAccountStatus status;
+    @JsonIgnore
     @OneToMany(mappedBy = "createdBy", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<CheckDeviceStatus> checkDeviceStatuses;
 
